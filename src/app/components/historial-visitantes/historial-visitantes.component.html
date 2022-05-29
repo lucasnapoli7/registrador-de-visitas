@@ -1,0 +1,48 @@
+<h2 class="titulo">Historial de visitas</h2>
+<table class="table" *ngIf="(listaVisitasPorPersona.length != 0); else elseBlock">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Visitó a</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let visita of listaVisitasPorPersona;let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{visita.fechaIngreso}}</td>
+        <td>{{visita.horaIngreso}} hs</td>
+        <td>{{visita.personaVisitada}}</td>
+        <td><button class="btn btn-danger" (click)="modalEliminar(visita)" data-bs-toggle="modal" data-bs-target="#borrarModal">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #elseBlock>
+    <div class="row text-center">
+      <p><b>No hay registros de visita de esta persona.</b></p>
+    </div>
+  </ng-template>
+
+  <div class="modal fade" id="borrarModal" tabindex="-1" aria-labelledby="borrarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="borrarModalLabel">Se eliminará el siguiente objeto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <b>DNI:</b> {{visitaAEliminar.dniVisitante}} <br/>
+          <b>Fecha de ingreso:</b> {{visitaAEliminar.fechaIngreso}}<br/>
+          <b>Hora de ingreso:</b> {{visitaAEliminar.horaIngreso}}<br/>
+          <b>Visitó a:</b> {{visitaAEliminar.personaVisitada}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" (click)="eliminarVisita()">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

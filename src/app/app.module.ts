@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { IngresoVisitantesComponent } from './components/ingreso-visitantes/ingreso-visitantes.component';
+import { HistorialVisitantesComponent } from './components/historial-visitantes/historial-visitantes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IngresoVisitantesComponent
+    IngresoVisitantesComponent,
+    HistorialVisitantesComponent
   ],
   imports: [
     BrowserModule

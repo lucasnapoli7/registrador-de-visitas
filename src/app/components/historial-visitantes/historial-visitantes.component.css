@@ -1,0 +1,6 @@
+.titulo{
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}

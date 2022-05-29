@@ -1,1 +1,5 @@
-<app-ingreso-visitantes></app-ingreso-visitantes>
+<app-ingreso-visitantes
+    (agregadaVisita)="input_result.agregarVisita($event)"
+    (consultarHistorial)="input_result.mostrarHistorial($event)"
+></app-ingreso-visitantes>
+<app-historial-visitantes #input_result></app-historial-visitantes>
